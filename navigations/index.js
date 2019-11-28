@@ -1,14 +1,19 @@
 import React from 'react';
-import { createStackNavigation } from 'react-navigation';
-import { createAppContainer } from 'react-native-gesture-handler';
-import Home from '../screens/Home';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
 import Login from '../screens/Login';
-import Signup from '../screens/Signup';
-import PostDetail from '../screens/PostDetail';
 import Welcome from '../screens/Welcome';
+import Signup from '../screens/Signup';
 
-export default Navigation = createStackNavigation(
+const screens = createStackNavigator(
     {
-
+        Welcome: Welcome,
+        Login: Login,
+        Signup: Signup
+    },
+    {
+        initialRouteName: 'Welcome'
     }
-)
+);
+
+export default createAppContainer(screens);
