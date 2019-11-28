@@ -1,19 +1,28 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Animated } from 'react-native'
-
 import { theme } from '../constants';
+let blockStyles;
 
 export default class Block extends Component {
-  render() { 
+  constructor(props) {
+    super(props);
+  }
+
+  render() {  
+    const { type } = this.props;
+    const blockStyles = [
+        type == 'welcome' && styles.welcome
+    ]
+
     return (
-      <View style={{flex: 1}}>
+      <View style={styles.block}>
         {this.props.children}
       </View>
     )
-  }
+  } 
 }
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   block: {
     flex: 1,
   },
@@ -59,4 +68,9 @@ export const styles = StyleSheet.create({
   white: { backgroundColor: theme.colors.white, },
   gray: { backgroundColor: theme.colors.gray, },
   gray2: { backgroundColor: theme.colors.gray2, },
+  welcome: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 })

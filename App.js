@@ -4,9 +4,7 @@ import Navigation from './navigations';
 
 export default function App() {
   return (
-    <Block>
       <Navigation />
-    </Block>
   );
 }
 
