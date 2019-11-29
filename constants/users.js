@@ -1,6 +1,6 @@
 const user = {
-    email: 'leanhthao01@gmail.com',
-    pass: '!@#$%'
+    email: 'thao',
+    pass: '123'
 };
-
+ 
 export { user };

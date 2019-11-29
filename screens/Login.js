@@ -1,29 +1,57 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput} from 'react-native';
-import { Block, Button } from '../components'
+import { Block, Button, Text, TextInput } from '../components'
+import { connect } from 'react-redux';
+import { updateField, submitLogin } from '../action/handle';
+import * as constant from '../constants';
 
-export default class Login extends Component {
-    constructor(props) {
+class Login extends Component {
+    constructor(props) {   
         super(props);
     }
 
+    onChangeEmail = ev => {
+        this.props.updateField('email', ev); 
+    }
+
+    onChangePass = ev => { 
+        this.props.updateField('password', ev);
+    }
+
+    onSubmitLogin = () => {
+        if(this.props.news.email == 'Thao' && this.props.news.password == '123' ) {
+            this.props.submitLogin();
+            this.props.navigation.navigate('Home');
+        }
+    }      
+    
+    componentDidUpdate() {
+        if(this.props.news.Logined) { 
+            console.log(this.props.news.Logined)
+        }
+    }
     render() {
         return(
-            <Block>
-                <Block>
-                    <Text>Email:</Text>
-                    <TextInput></TextInput>
+            <Block loginForm>
+                <Block loginFormField>
+                    <Text h3>Email:</Text>
+                    <TextInput login onChangeText={this.onChangeEmail}></TextInput>
                 </Block>
-                <Block>
-                    <Text>Password:</Text>
-                    <TextInput></TextInput>
+                <Block loginFormField> 
+                    <Text h3>Password:</Text>
+                    <TextInput login onChangeText={this.onChangePass}></TextInput> 
                 </Block>
-                <Block>
-                    <Button>
-                        <Text>Login</Text>
+                <Block loginFormField>
+                    <Button primary onPress={this.onSubmitLogin}>
+                        <Text login>Login</Text>
                     </Button>
-                </Block>
+                </Block> 
             </Block>
-        )
+        )     
     }
 }
+
+const mapStateToProps = state => ({
+    news: state.News
+})
+
+export default connect(mapStateToProps, { updateField, submitLogin })(Login)

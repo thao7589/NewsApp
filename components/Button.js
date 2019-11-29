@@ -4,10 +4,10 @@ import * as theme from '../constants/theme';
 
 export default class Button extends Component {
   render() {
-    const { type } = this.props;
+    const { primary, secondary } = this.props;
     const buttonStyles = [
-      type == 'primary' && styles.primary,
-      type == 'secondary' && styles.secondary
+      primary && styles.primary,
+      secondary && styles.secondary
     ] 
 
     return (
