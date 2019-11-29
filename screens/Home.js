@@ -1,7 +1,8 @@
 import React from 'react';
 import {View, Text, FlatList, StyleSheet, Alert} from 'react-native';
 import { connect } from 'react-redux';
-import Swipeout from 'react-native-swipeout'
+import Swipeout from 'react-native-swipeout';
+import { deletePost } from '../action/handle';
 
 class Home extends React.Component {
   render() {
@@ -22,7 +23,7 @@ class Home extends React.Component {
               [
                 {text: 'No', onPress: () => console.log('Canceled'), style: 'cancel'},
                 {text: 'Yes', onPress: () => {
-                  
+                  this.props.deletePost
                 }}
               ]
             )
@@ -73,4 +74,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect( mapStateToProps )(Home)
+export default connect( mapStateToProps, {deletePost} )(Home)
