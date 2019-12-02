@@ -18,17 +18,12 @@ class Login extends Component {
     }
 
     onSubmitLogin = () => {
-        if(this.props.news.email == 'Thao' && this.props.news.password == '123' ) {
+        if(this.props.news.email == constant.users.user.email && this.props.news.password == constant.users.user.pass ) {
             this.props.submitLogin();
             this.props.navigation.navigate('Home');
         }
     }      
     
-    componentDidUpdate() {
-        if(this.props.news.Logined) { 
-            console.log(this.props.news.Logined)
-        }
-    }
     render() {
         return(
             <Block loginForm>

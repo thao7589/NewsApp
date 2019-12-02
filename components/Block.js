@@ -9,12 +9,14 @@ export default class Block extends Component {
   }
 
   render() {  
-    const { welcome, loginForm, block, row } = this.props;
+    const { welcome, loginForm, block, row, center, middle } = this.props;
     const blockStyles = [
         welcome && styles.welcome,
         loginForm && styles.loginForm,
         block && styles.block,
-        row && styles.row
+        row && styles.row,
+        center && styles.center,
+        middle && styles.middle
     ]
 
     return (
