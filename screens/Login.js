@@ -23,12 +23,7 @@ class Login extends Component {
             this.props.navigation.navigate('Home');
         }
     }      
-    
-    componentDidUpdate() {
-        if(this.props.news.Logined) { 
-            console.log(this.props.news.Logined)
-        }
-    }
+
     render() {
         return(
             <Block loginForm>
