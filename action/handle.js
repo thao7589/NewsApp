@@ -21,6 +21,7 @@ export const submitSignUp = () => dispatch => {
     };
     dispatch(action);
 };
+
 export const deletePost = (id) => dispatch => {
     const action = {
         type: TYPE.DELETE_POST
