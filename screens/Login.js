@@ -26,7 +26,7 @@ class Login extends Component {
         firebase
             .auth()
             .signInWithEmailAndPassword(this.props.news.email, this.props.news.password)
-            .then(() => this.props.navigation.navigate('Main'))
+            .then(() => this.props.navigation.navigate('Home'))
             .catch(error => this.setState({ errorMessage: error.message }))
     }      
     
