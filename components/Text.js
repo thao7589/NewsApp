@@ -4,20 +4,18 @@ import { Text, StyleSheet } from "react-native";
 
 import { theme } from "../constants";
 
-export default class Typography extends Component {
-  render() {
-    const { login, h3 } = this.props;
-    const textStyles = [
-      login && styles.login,
-      h3 && styles.h3
-    ] 
+const Typography = () => {
+  const { login, h3 } = this.props;
+  const textStyles = [
+    login && styles.login,
+    h3 && styles.h3
+  ] 
 
-    return (
-      <Text style={textStyles} onPress={this.props.onPress}>
-        {this.props.children} 
-      </Text>  
-    )
-  }
+  return (
+    <Text style={textStyles} onPress={this.props.onPress}>
+      {this.props.children} 
+    </Text>  
+  )
 }
 
 const styles = StyleSheet.create({

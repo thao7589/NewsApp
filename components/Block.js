@@ -1,31 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { StyleSheet, View, Animated } from 'react-native'
 import { theme } from '../constants';
-let blockStyles;
 
-export default class Block extends Component {
-  constructor(props) {
-    super(props);
-  }
+const Block = (props) => {
+  const { welcome, loginForm, block, row, center, middle } = props;
+  const blockStyles = [
+      welcome && styles.welcome,
+      loginForm && styles.loginForm,
+      block && styles.block,
+      row && styles.row,
+      center && styles.center,
+      middle && styles.middle
+  ]
 
-  render() {  
-    const { welcome, loginForm, block, row, center, middle } = this.props;
-    const blockStyles = [
-        welcome && styles.welcome,
-        loginForm && styles.loginForm,
-        block && styles.block,
-        row && styles.row,
-        center && styles.center,
-        middle && styles.middle
-    ]
-
-    return (
-      <View style={blockStyles}>
-        {this.props.children}
-      </View>
-    ) 
-  } 
+  return (
+    <View style={blockStyles}>
+      {props.children}
+    </View>
+  ) 
 }
+
+export default Block;
  
 const styles = StyleSheet.create({
   block: {

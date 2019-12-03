@@ -2,20 +2,18 @@ import React, { Component } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import * as theme from '../constants/theme';
 
-export default class Button extends Component {
-  render() {
-    const { primary, secondary } = this.props;
-    const buttonStyles = [
-      primary && styles.primary,
-      secondary && styles.secondary
-    ] 
+const Button = () => {
+  const { primary, secondary } = this.props;
+  const buttonStyles = [
+    primary && styles.primary,
+    secondary && styles.secondary
+  ] 
 
-    return (
-      <TouchableOpacity style={buttonStyles} onPress={this.props.onPress}>
-        {this.props.children} 
-      </TouchableOpacity>  
-    )
-  }
+  return (
+    <TouchableOpacity style={buttonStyles} onPress={this.props.onPress}>
+      {this.props.children} 
+    </TouchableOpacity>  
+  )
 };
 
 const styles = StyleSheet.create({
