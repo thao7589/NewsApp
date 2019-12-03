@@ -3,11 +3,11 @@ import { Block, Button, Text, TextInput } from '../components'
 import { connect } from 'react-redux';
 import { updateField, submitLogin } from '../action/handle';
 import * as constant from '../constants';
-import firebase from 'react-native-firebase';
 
 class Login extends Component {
     constructor(props) {   
         super(props);
+        this.state = {};
     }
 
     onChangeEmail = ev => {

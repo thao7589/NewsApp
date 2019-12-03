@@ -1,24 +1,28 @@
-import React, { Component } from 'react';
-import { ActivityIndicator } from 'react-native';
+import React, { useState,useEffect } from 'react';
+import { ActivityIndicator, TouchableOpacity } from 'react-native';
 import { Block, Text } from '../components';
-import firebase from 'react-native-firebase';
 
 
-export default class Loading extends Component {
-    componentDidMount() {
-        firebase.auth().onAuthStateChanged(user => {
-          this.props.navigation.navigate(user ? 'Home' : 'Welcome')
-        })
-    }
-    
-    render() {
+function Loading() {
+    const [count, setCount] = useState(0);
+    useEffect(() => {
+        // firebase.auth().onAuthStateChanged(user => {
+        //     this.props.navigation.navigate(user ? 'Home' : 'Welcome')
+        // })
+        console.log(324234);
         return (
-            <Block block center middle>
-                <ActivityIndicator size='large' />
-            </Block>
+            console.log(12313)
         )
-    }
-    
+    })
+
+    return (
+        <Block block center middle>
+            {/* <ActivityIndicator size='large' /> */}
+            <TouchableOpacity onPress={() =>setCount(123123)}>
+                <Text>hello</Text>
+            </TouchableOpacity>
+        </Block>
+    )
 }
 
 export default Loading;

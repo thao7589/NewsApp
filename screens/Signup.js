@@ -6,6 +6,7 @@ import { updateField, submitSignUp } from '../action/handle';
 class Signup extends Component {
     constructor(props) {
         super(props);
+        this.state = {};
     }
 
     onChangeEmail = ev => {
@@ -27,8 +28,8 @@ class Signup extends Component {
         // }
         firebase
             .auth()
-            .createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then(() => this.props.navigation.navigate('Main'))
+            .createUserWithEmailAndPassword(this.props.news.email, this.props.news.password)
+            .then(() => this.props.navigation.navigate('Home'))
             .catch(error => this.setState({ errorMessage: error.message }))
     }
 
