@@ -21,7 +21,6 @@ class Signup extends Component {
     }
 
     onSubmitSignUp = () => {
-        console.log(this.props.news)
         if(this.props.news.email !== '' && this.props.news.password !== '' && this.props.news.password == this.props.news.confirmPassword) {
             this.props.submitSignUp();
             this.props.navigation.navigate('Home');

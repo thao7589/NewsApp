@@ -1,5 +1,5 @@
 const user = {
-    email: 'thao',
+    email: 'Thao',
     pass: '123'
 };
  
