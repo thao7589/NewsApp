@@ -3,6 +3,7 @@ import { Block, Button, Text, TextInput } from '../components'
 import { connect } from 'react-redux';
 import { updateField, submitLogin } from '../action/handle';
 import * as constant from '../constants';
+import firebase from 'react-native-firebase';
 
 class Login extends Component {
     constructor(props) {   
@@ -18,10 +19,15 @@ class Login extends Component {
     }
 
     onSubmitLogin = () => {
-        if(this.props.news.email == constant.users.user.email && this.props.news.password == constant.users.user.pass ) {
-            this.props.submitLogin();
-            this.props.navigation.navigate('Home');
-        }
+        // if(this.props.news.email == constant.users.user.email && this.props.news.password == constant.users.user.pass ) {
+        //     this.props.submitLogin();
+        //     this.props.navigation.navigate('Home');
+        // }
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(this.props.news.email, this.props.news.password)
+            .then(() => this.props.navigation.navigate('Main'))
+            .catch(error => this.setState({ errorMessage: error.message }))
     }      
     
     render() {

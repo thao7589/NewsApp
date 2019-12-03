@@ -21,10 +21,15 @@ class Signup extends Component {
     }
 
     onSubmitSignUp = () => {
-        if(this.props.news.email !== '' && this.props.news.password !== '' && this.props.news.password == this.props.news.confirmPassword) {
-            this.props.submitSignUp();
-            this.props.navigation.navigate('Home');
-        }
+        // if(this.props.news.email !== '' && this.props.news.password !== '' && this.props.news.password == this.props.news.confirmPassword) {
+        //     this.props.submitSignUp();
+        //     this.props.navigation.navigate('Home');
+        // }
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(this.state.email, this.state.password)
+            .then(() => this.props.navigation.navigate('Main'))
+            .catch(error => this.setState({ errorMessage: error.message }))
     }
 
     render() {
