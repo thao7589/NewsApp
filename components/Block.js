@@ -1,26 +1,27 @@
-import React from 'react'
-import { StyleSheet, View, Animated } from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet, View, Text } from 'react-native'
 import { theme } from '../constants';
 
 const Block = (props) => {
-  const { welcome, loginForm, block, row, center, middle } = props;
+  const { welcome, loginForm, loginFormField, block, row, center, middle, children } = props;
   const blockStyles = [
       welcome && styles.welcome,
       loginForm && styles.loginForm,
+      loginFormField && styles.loginFormField,
       block && styles.block,
       row && styles.row,
       center && styles.center,
       middle && styles.middle
   ]
-
+  
   return (
     <View style={blockStyles}>
-      {props.children}
+      { children }
     </View>
   ) 
 }
 
-export default Block;
+export default Block
  
 const styles = StyleSheet.create({
   block: {
@@ -58,7 +59,6 @@ const styles = StyleSheet.create({
   },
   loginForm: {
       margin: 10,
-      
   },
   loginFormField: {
     flexDirection: 'row'
